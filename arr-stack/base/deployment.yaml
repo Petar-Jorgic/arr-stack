@@ -61,9 +61,15 @@ spec:
                   name: gluetun-secrets
                   key: VPN_ENDPOINT_IP
             - name: VPN_ENDPOINT_PORT
-              value: "51820"
+              valueFrom:
+                secretKeyRef:
+                  name: gluetun-secrets
+                  key: VPN_ENDPOINT_PORT
             - name: WIREGUARD_ADDRESSES
-              value: "10.2.0.2/32"
+              valueFrom:
+                secretKeyRef:
+                  name: gluetun-secrets
+                  key: WIREGUARD_ADDRESSES
             - name: FIREWALL_VPN_INPUT_PORTS
               value: "8080,9696,8989,7878,6767,8191"  # qBit, Prowlarr, Sonarr, Radarr, Bazarr, Flaresolverr
             - name: TZ
