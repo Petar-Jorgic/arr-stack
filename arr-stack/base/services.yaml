@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: arr-stack
+  namespace: arr-stack
+  labels:
+    app.kubernetes.io/name: arr-stack
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: arr-stack
+  ports:
+    # qBittorrent WebUI
+    - name: qbittorrent
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+    # SABnzbd WebUI
+    - name: sabnzbd
+      port: 8085
+      targetPort: 8080
+      protocol: TCP
+    # Prowlarr
+    - name: prowlarr
+      port: 9696
+      targetPort: 9696
+      protocol: TCP
+    # Sonarr
+    - name: sonarr
+      port: 8989
+      targetPort: 8989
+      protocol: TCP
+    # Radarr
+    - name: radarr
+      port: 7878
+      targetPort: 7878
+      protocol: TCP
+    # Bazarr
+    - name: bazarr
+      port: 6767
+      targetPort: 6767
+      protocol: TCP
+    # Flaresolverr
+    - name: flaresolverr
+      port: 8191
+      targetPort: 8191
+      protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellyseerr
+  namespace: arr-stack
+  labels:
+    app.kubernetes.io/name: jellyseerr
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: jellyseerr
+  ports:
+    - name: http
+      port: 5055
+      targetPort: 5055
+      protocol: TCP

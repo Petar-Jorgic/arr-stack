@@ -1,0 +1,48 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: arr-stack
+
+resources:
+  - ../../base
+
+# Prod-spezifische Patches
+patches:
+  # Ingress Hosts für Produktion anpassen
+  - target:
+      kind: Ingress
+      name: arr-stack
+    patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: qbit.deine-domain.de
+      - op: replace
+        path: /spec/rules/1/host
+        value: sabnzbd.deine-domain.de
+      - op: replace
+        path: /spec/rules/2/host
+        value: prowlarr.deine-domain.de
+      - op: replace
+        path: /spec/rules/3/host
+        value: sonarr.deine-domain.de
+      - op: replace
+        path: /spec/rules/4/host
+        value: radarr.deine-domain.de
+      - op: replace
+        path: /spec/rules/5/host
+        value: bazarr.deine-domain.de
+      - op: replace
+        path: /spec/rules/6/host
+        value: jellyseerr.deine-domain.de
+
+# Secrets aus .env Datei generieren
+secretGenerator:
+  - name: gluetun-vpn-secrets
+    envs:
+      - .env
+    options:
+      disableNameSuffixHash: true
+
+# Resource Limits für Prod erhöhen wenn nötig
+# patchesStrategicMerge:
+#   - increase-resources.yaml

@@ -1,0 +1,12 @@
+# Secrets - NIEMALS committen!
+.env
+*.env
+secrets.yaml
+*-secrets.yaml
+
+# Sealed Secrets sind OK
+!sealed-*.yaml
+
+# Lokale Kustomize Outputs
+kustomize-build/
+*.rendered.yaml

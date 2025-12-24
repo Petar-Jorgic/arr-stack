@@ -1,0 +1,91 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: arr-stack
+  namespace: arr-stack
+  annotations:
+    # Traefik (K3s default)
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    # Optional: cert-manager
+    # cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  rules:
+    # qBittorrent
+    - host: qbit.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: arr-stack
+                port:
+                  number: 8080
+    # SABnzbd
+    - host: sabnzbd.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: arr-stack
+                port:
+                  number: 8085
+    # Prowlarr
+    - host: prowlarr.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: arr-stack
+                port:
+                  number: 9696
+    # Sonarr
+    - host: sonarr.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: arr-stack
+                port:
+                  number: 8989
+    # Radarr
+    - host: radarr.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: arr-stack
+                port:
+                  number: 7878
+    # Bazarr
+    - host: bazarr.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: arr-stack
+                port:
+                  number: 6767
+    # Jellyseerr
+    - host: jellyseerr.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyseerr
+                port:
+                  number: 5055
