@@ -5,7 +5,7 @@ namespace: arr-stack
 
 resources:
     - namespace.yaml
-    - ../sealed-secrets/gluetun-sealed-secret.yaml
+    - gluetun-sealed-secret.yaml
     - pvc.yaml
     - deployment.yaml
     - services.yaml
