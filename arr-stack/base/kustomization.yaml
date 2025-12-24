@@ -4,12 +4,12 @@ kind: Kustomization
 namespace: arr-stack
 
 resources:
-  - namespace.yaml
-  - secrets.yaml
-  - pvc.yaml
-  - deployment.yaml
-  - services.yaml
-  - ingress.yaml
+    - namespace.yaml
+    - ../sealed-secrets/gluetun-sealed-secret.yaml
+    - pvc.yaml
+    - deployment.yaml
+    - services.yaml
+    - ingress.yaml
 
 commonLabels:
   app.kubernetes.io/managed-by: kustomize
