@@ -1,0 +1,10 @@
+steps:
+    - name: deploy
+      image: bitnami/kubectl:latest
+      commands:
+        - kubectl apply -f arr-stack/sealed-secrets/
+        - kubectl apply -f arr-stack/kubernetes/
+
+  when:
+    branch: main
+    event: push
