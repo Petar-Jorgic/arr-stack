@@ -35,14 +35,6 @@ patches:
         path: /spec/rules/6/host
         value: jellyseerr.deine-domain.de
 
-# Secrets aus .env Datei generieren
-secretGenerator:
-  - name: gluetun-vpn-secrets
-    envs:
-      - .env
-    options:
-      disableNameSuffixHash: true
-
 # Resource Limits für Prod erhöhen wenn nötig
 # patchesStrategicMerge:
 #   - increase-resources.yaml
