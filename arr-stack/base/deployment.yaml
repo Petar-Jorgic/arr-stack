@@ -43,22 +43,22 @@ spec:
             - name: WIREGUARD_PRIVATE_KEY
               valueFrom:
                 secretKeyRef:
-                  name: gluetun-vpn-secrets
+                  name: gluetun-secrets
                   key: WIREGUARD_PRIVATE_KEY
             - name: WIREGUARD_PRESHARED_KEY
               valueFrom:
                 secretKeyRef:
-                  name: gluetun-vpn-secrets
+                  name: gluetun-secrets
                   key: WIREGUARD_PRESHARED_KEY
             - name: WIREGUARD_PUBLIC_KEY
               valueFrom:
                 secretKeyRef:
-                  name: gluetun-vpn-secrets
+                  name: gluetun-secrets
                   key: WIREGUARD_PUBLIC_KEY
             - name: VPN_ENDPOINT_IP
               valueFrom:
                 secretKeyRef:
-                  name: gluetun-vpn-secrets
+                  name: gluetun-secrets
                   key: VPN_ENDPOINT_IP
             - name: VPN_ENDPOINT_PORT
               value: "51820"
