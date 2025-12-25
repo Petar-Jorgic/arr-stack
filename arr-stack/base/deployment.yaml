@@ -197,7 +197,7 @@ spec:
               mountPath: /downloads
             - name: nas-media
               mountPath: /tv
-              subPath: tv
+              subPath: media/tv
           resources:
             requests:
               memory: "256Mi"
@@ -226,7 +226,7 @@ spec:
               mountPath: /downloads
             - name: nas-media
               mountPath: /movies
-              subPath: movies
+              subPath: media/movies
           resources:
             requests:
               memory: "256Mi"
@@ -253,10 +253,10 @@ spec:
               subPath: bazarr
             - name: nas-media
               mountPath: /tv
-              subPath: tv
+              subPath: media/tv
             - name: nas-media
               mountPath: /movies
-              subPath: movies
+              subPath: media/movies
           resources:
             requests:
               memory: "128Mi"
