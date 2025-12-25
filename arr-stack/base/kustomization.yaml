@@ -7,6 +7,7 @@ resources:
     - namespace.yaml
     - gluetun-sealed-secret.yaml
     - pvc.yaml
+    - nas-pvc.yaml
     - deployment.yaml
     - services.yaml
     - ingress.yaml

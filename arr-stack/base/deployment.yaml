@@ -195,7 +195,7 @@ spec:
               subPath: sonarr
             - name: downloads
               mountPath: /downloads
-            - name: media
+            - name: nas-media
               mountPath: /tv
               subPath: tv
           resources:
@@ -224,7 +224,7 @@ spec:
               subPath: radarr
             - name: downloads
               mountPath: /downloads
-            - name: media
+            - name: nas-media
               mountPath: /movies
               subPath: movies
           resources:
@@ -251,10 +251,10 @@ spec:
             - name: config
               mountPath: /config
               subPath: bazarr
-            - name: media
+            - name: nas-media
               mountPath: /tv
               subPath: tv
-            - name: media
+            - name: nas-media
               mountPath: /movies
               subPath: movies
           resources:
@@ -292,9 +292,9 @@ spec:
         - name: downloads
           persistentVolumeClaim:
             claimName: arr-downloads
-        - name: media
+        - name: nas-media
           persistentVolumeClaim:
-            claimName: arr-media
+            claimName: nas-media
 ---
 # ============================================
 # JELLYSEERR - Separates Deployment (braucht kein VPN)
